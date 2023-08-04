@@ -1,0 +1,39 @@
+
+<ion-content>
+  <div class="flex justify-center ion-align-items-center h-full w-full">
+    <ion-card class="loginCard p-5">
+      <ion-card-header>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="loginForm" class="flex flex-col gap-5 mt-5">
+          <ion-input
+            fill="outline"
+            label="Insert Your email here"
+            placeholder="mariorossi@gmail.com"
+            label-placement="floating"
+            type="email"
+            formControlName="email"
+          ></ion-input>
+          <ion-input
+            fill="outline"
+            label="Insert your password here"
+            placeholder="*******"
+            label-placement="floating"
+            type="password"
+            formControlName="password"
+          >
+          </ion-input>
+          <ion-button
+            class="ion-color-primary"
+            [disabled]="loginForm.invalid"
+            (click)="login()"
+          >Log in
+          </ion-button>
+        </form>
+      </ion-card-content>
+
+
+    </ion-card>
+  </div>
+</ion-content>
