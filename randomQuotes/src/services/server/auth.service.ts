@@ -19,7 +19,7 @@ export class AuthService {
     const req = this.http.get<quoteResponse<User>>(`${this.basePath}/quote`,).pipe(share());
     req.subscribe({
       next: (res) => {
-        console.log(res)
+        console.log(res.data)
 
     }
     })
