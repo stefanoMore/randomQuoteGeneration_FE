@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import {CookieService} from "ngx-cookie-service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @Component({

@@ -23,11 +23,6 @@ export class LoginPage{
 
 
   login() {
-    this.authService.login()
-      .subscribe({
-        next: (res) => {
-          console.log(`Sono arrivato qui nella pagine login Page}`)
-        }
-      })
+    this.authService.login({email: this.loginForm.value.email, password: this.loginForm.value.password})
   }
 }
