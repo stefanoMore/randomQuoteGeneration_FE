@@ -3,3 +3,9 @@ export interface quoteResponse<T> {
   code: number,
   data: T
 }
+
+export interface tokenResponse<T> {
+  message: string,
+  isValid: boolean,
+  payload: T
+}

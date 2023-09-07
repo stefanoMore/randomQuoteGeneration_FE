@@ -24,7 +24,6 @@ export class QuoteService {
 
     return req
   }
-
   getRandomQuote(): Observable<quoteResponse<Quote>>{
     const req = this.http.get<quoteResponse<Quote>>(`${this.basePath}/quote/randomQuote`, {withCredentials: true}).pipe(share())
     return req

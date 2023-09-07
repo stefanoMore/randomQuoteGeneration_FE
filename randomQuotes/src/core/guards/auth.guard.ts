@@ -1,8 +1,10 @@
 import {inject} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {AuthService} from "../../services/server/auth.service";
 import {NavController} from "@ionic/angular";
 import {CookieService} from "ngx-cookie-service";
+import {TokenService} from "../../services/server/token.service";
+
 
 export const authGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
@@ -11,17 +13,16 @@ export const authGuard: CanActivateFn = (
   const authService = inject(AuthService);
   const navController = inject(NavController);
   const cookieService = inject(CookieService)
+  const tokenService = inject(TokenService)
 
-  const token = cookieService.get('jwt')
-  console.log(token)
+  const token = tokenService.setToken();
+  const isTokenExpired = tokenService.isTokenExpired()
 
-  if(!token) {
-    //navController.navigateBack(['login']).then();
-    return false
+  if(tokenService.jwtToken !== null ){
+    return isTokenExpired ?  navController.navigateBack(['login']).then() : true;
+  }else{
+    navController.navigateBack(['login']).then()
+    return  false
   }
-
-  const prova = authService.verifyToken(token)
-
-  return true
 };
 

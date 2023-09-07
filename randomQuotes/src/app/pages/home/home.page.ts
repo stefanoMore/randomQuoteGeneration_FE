@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import {QuoteService} from "../../../services/server/quote.service";
 
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {AuthService} from "../../../services/server/auth.service";
 
 
 @Component({
@@ -29,7 +30,7 @@ export class HomePage implements OnInit {
   quote: string = ''
   author: string = ''
   animationState  = 'in'
-  constructor(private quoteService: QuoteService) { }
+  constructor(private quoteService: QuoteService, private authService: AuthService) { }
 
   ngOnInit() {
     this.quoteService.getRandomQuote()
@@ -56,5 +57,9 @@ export class HomePage implements OnInit {
         }
 
       })
+  }
+
+  logout(){
+    this.authService.logout()
   }
 }
