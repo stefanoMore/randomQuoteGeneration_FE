@@ -6,7 +6,7 @@
         <ion-card-title>Login</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <form [formGroup]="loginForm" class="flex flex-col gap-5 mt-5">
+        <form [formGroup]="loginForm" (submit)="login()" class="flex flex-col gap-5 mt-5">
           <ion-input
             fill="outline"
             label="Insert Your email here"
@@ -25,6 +25,7 @@
           >
           </ion-input>
           <ion-button
+            type="submit"
             class="ion-color-primary"
             [disabled]="loginForm.invalid"
             (click)="login()"

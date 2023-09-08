@@ -43,9 +43,6 @@ export class TokenService {
   isTokenExpired(): boolean{
     const expTime: number = this.getExpiryTime();
     if(expTime){
-      console.log(expTime*1000)
-      console.log(new Date().getTime())
-      console.log((1000 * expTime) - (new Date().getTime()))
       return ((1000 * expTime) - (new Date().getTime())) < 5000;
     }else{
       return true

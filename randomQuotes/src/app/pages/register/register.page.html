@@ -3,10 +3,26 @@
   <div class="flex justify-center ion-align-items-center h-full w-full">
     <ion-card class="loginCard p-5">
       <ion-card-header>
-        <ion-card-title>Login</ion-card-title>
+        <ion-card-title>Sign On</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <form [formGroup]="registerForm" class="flex flex-col gap-5 mt-5">
+          <ion-input
+            fill="outline"
+            label="Insert your name here"
+            placeholder="Mario"
+            label-placement="floating"
+            type="text"
+            formControlName="name"
+          ></ion-input>
+          <ion-input
+            fill="outline"
+            label="Insert your surname here"
+            placeholder="Rossi"
+            label-placement="floating"
+            type="text"
+            formControlName="surname"
+          ></ion-input>
           <ion-input
             fill="outline"
             label="Insert Your email here"
@@ -47,7 +63,7 @@
             class="ion-color-primary"
             [disabled]="registerForm.invalid"
             (click)="register()"
-          >Log in
+          >Sing On
           </ion-button>
         </form>
       </ion-card-content>
